@@ -39,6 +39,66 @@
 | Sleep Disorder          | 수면장애 여부( None, Insomnia, Sleep Apnea )          |
 
 ------------------------------------------------------------------------------
+# 변수 분포 시각화
+
+
+
+*   **수치형 변수 히스토그램**: `sns.histplot`
+    *   `Age`, `Stress Level` 등 주요 수치형 변수의 분포 및 KDE(Kernel Density Estimate) 확인.
+*   **범주형 변수 분포**:
+    *   도넛 파이 차트 (`plt.pie`): `Gender`, `Occupation`, `BMI Category`, `Sleep Disorder` 등.
+    *   막대 그래프 (`sns.countplot`): `BMI Category` 등.
+*   **수치형 변수 간 상관관계 히트맵**: `sns.heatmap(df[num_cols].corr(), annot=True)`
+    *   전체 수치형 변수 간의 선형적 관계 강도 파악.
+
+-------------------------------------------------------------------------------
+
+# 변수 간 관계 분석 및 시각화
+
+
+
+*   **전체 변수 간 관계 (Pairplot)**: `sns.pairplot(data=df, hue='Sleep Disorder')`
+    *   모든 수치형 변수 쌍에 대한 산점도와 각 변수의 분포도를 한눈에 확인.
+*   **주요 변수 간 산점도 (Scatterplot)**: `sns.scatterplot`
+    *   예: `Sleep Duration` vs `Age` (hue: `Sleep Disorder`)
+    *   예: `Quality of Sleep` vs `Stress Level` (hue: `Sleep Disorder`)
+*   **회귀선 포함 산점도 (Regplot)**: `sns.regplot`
+    *   두 변수 간의 선형적 추세 파악.
+*   **다변량 관계 시각화**: `plt.scatter` (c 옵션 활용)
+    *   `Daily Steps` vs `Heart Rate` (색상: `Quality of Sleep`)
+    *   `Age` vs `Sleep Duration` (색상: `Gender_code`)
+    *   `Physical Activity Level` vs `Stress Level` (색상: `Occupation_encoded`)
+*   **교차분석 (Pivot Table & Heatmap)**: `df.pivot_table()`, `sns.heatmap()`
+    *   '나이 그룹'과 '성별'에 따른 '수면 시간 그룹' 평균.
+    *   'BMI 라벨'과 '수면 장애 라벨'에 따른 '심박수 그룹' 평균.
+    *   '일일 걸음수 구간'과 '심박수 구간'에 따른 '수면의 질' 평균.
+    *   '신체 활동 수준 그룹'과 '스트레스 수준'에 따른 '수면의 질' 평균.
+---------------------------------------------------------------------------------
+
+# Feature Engineering (특성 공학)
+
+*   **혈압 관련 파생 변수**:
+    *   `Systolic_BP`, `Diastolic_BP` (기존 'Blood Pressure' 컬럼에서 분리 및 수치화)
+    *   `MAP` (Mean Arterial Pressure): `Diastolic_BP + (Systolic_BP - Diastolic_BP) / 3`
+    *   `Pulse_Pressure`: `Systolic_BP - Diastolic_BP`
+    *   `BP_Category`: 혈압 수치를 기반으로 '정상', '주의 혈압', '고혈압 1단계' 등 범주화.
+*   **수면 효율 관련 지표**:
+    *   `Sleep_Quality_per_Hour`: `Quality of Sleep / Sleep Duration`
+*   **스트레스 및 활동 관련 지표**:
+    *   `Quality_per_Stress`: `Quality of Sleep / Stress Level`
+    *   `Activity_per_Stress`: `Physical Activity Level / Stress Level`
+*   **일일 걸음 수 범주화**: `Daily_Steps_Category` (예: '적음', '보통', '활동적')
+*   **BMI Category 수치형 변환 (Ordinal Encoding)**: `BMI_Encoded` (예: Normal: 0, Overweight: 1, Obese: 2)
+*   **연령대 범주화**: `Age_Group` (예: '20대이하', '30대', '40대' 등)
+*   **직업군 그룹화**: `Is_Medical_Worker` (의료계 종사자 여부: 1 or 0)
+*   **상호작용 항 (Interaction Terms)**:
+    *   `Age_x_Stress`: `Age * Stress Level`
+    *   `Sleep_x_Activity`: `Sleep Duration * Physical Activity Level`
+*   **데이터 분포 개선 (로그 변환)**: 왜도가 높은 변수에 `np.log1p` 적용.
+    *   `Daily_Steps_Log`, `Systolic_BP_Log`, `Diastolic_BP_Log`
+    *   변환 전후 히스토그램 비교.
+
+-----------------------------------------------------------------------------------
 # 💭 한줄 회고
 <table>
   <tbody>
