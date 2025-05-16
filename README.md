@@ -42,10 +42,10 @@
 # 💭 한줄 회고
 <table>
   <tbody>
-    <tr><th width="100"><strong>김재아</strong></th><td></td></tr>
-    <tr><th width="100"><strong>김재우</strong></th><td></td></tr>
-    <tr><th width="100"><strong>박빛나</strong></th><td></td></tr>
+    <tr><th width="100"><strong>김재아</strong></th><td>데이터 컬럼만 보면서 생각했던 것과 정확한 수치 값을 보면서 데이터 분석이 왜 필요한지 알게 되었다.</td></tr>
+    <tr><th width="100"><strong>김재우</strong></th><td>데이터의 구조와 깊이를 이해하려고 노력했고 전처리와 feature engineering이 깔끔하게 처리되지 못한게 아쉬웠다.</td></tr>
+    <tr><th width="100"><strong>박빛나</strong></th><td>EDA 전체적인 과정을 진행해보면서 복습도 많이 됐고, 시각화해보며 예상과는 다른 데이터 결과에 재미있었다.</td></tr>
     <tr><th width="100"><strong>송지훈</strong></th><td>간단하고 명확해보이는 데이터셋도 깊게 파고들수록 나 자신과 데이터를 의심하게 됐다.</td></tr>
-    <tr><th width="100"><strong>조성재</strong></th><td></td></tr>
+    <tr><th width="100"><strong>조성재</strong></th><td>즐거운 데이터분석 즐거운 EDA! 항상 좋은 데이터만을 만나고 싶지만 그럴 수 없을 것 같아 무섭습니다.</td></tr>
   </tbody>
 </table>
